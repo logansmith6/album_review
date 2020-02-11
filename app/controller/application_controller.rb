@@ -8,8 +8,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    session[:email] = params[:email]
     "Hello World."
   end
 
 end
- 

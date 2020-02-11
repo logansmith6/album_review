@@ -8,7 +8,7 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
 end
 
 use Rack::MethodOverride
-use Rack::Session::Cookie
+use Rack::Session::Cookie, :secret => "smallermountain"
 use SessionsController
 
 run ApplicationController
