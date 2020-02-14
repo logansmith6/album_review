@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   get '/posts/new' do
     if !session[:username]
+    end
   end
 
 
