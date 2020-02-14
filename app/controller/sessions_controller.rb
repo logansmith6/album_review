@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
       erb :"sessions/login.html"
     else
       redirect '/posts'
+    end
   end
 
 
