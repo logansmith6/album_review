@@ -4,12 +4,11 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "smallmountain"
+    set :session_secret, "small_mountain"
   end
 
   get '/' do
-    session[:email] = params[:email]
-    "Hello World."
+    redirect '/login'
   end
 
 end
