@@ -9,6 +9,7 @@ end
 
 use Rack::MethodOverride
 use Rack::Session::Cookie, :secret => "smallermountain"
+use PostsController
 use SessionsController
 
 run ApplicationController
