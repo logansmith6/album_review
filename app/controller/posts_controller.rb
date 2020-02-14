@@ -5,7 +5,10 @@ class PostsController < ApplicationController
   end
 
   get '/posts/new' do
-    if !session[:username]
+    if !logged_in?
+      redirect '/login'
+    else
+      "new posts here"
     end
   end
 
