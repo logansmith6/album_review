@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class ReviewsController < ApplicationController
 
   get '/posts' do
     if logged_in?
