@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       redirect '/failure'
     else
       @user.save
+      session[:username] = params[:username]
       redirect '/login'
     end
   end
@@ -19,10 +20,7 @@ class SessionsController < ApplicationController
     erb :"sessions/login.html"
   end
 
-  post '/sessions' do
-    session[:username] = params[:username]
-    redirect '/posts'
-  end
+
 
   post '/login' do
     user = User.find_by(:username => params[:username])
