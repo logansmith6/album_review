@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     else
       @user.save
       session[:username] = params[:username]
-      session[:password] = params[:password]
+
       redirect '/login'
     end
   end
