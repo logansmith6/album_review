@@ -11,4 +11,10 @@ class ApplicationController < Sinatra::Base
     redirect '/login'
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
+  post
+
 end
