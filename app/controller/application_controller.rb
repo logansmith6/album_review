@@ -1,73 +1,34 @@
-require "./config/environment"
-require "./app/models/user"
 class ApplicationController < Sinatra::Base
 
   configure do
-    set :views, "app/views"
+    set :public_folder, 'public'
+    set :views, 'app/views'
     enable :sessions
-    set :session_secret, "password_security"
+    set :session_secret, "small_mountain"
   end
 
-  get "/" do
-    erb :index
+  get '/' do
+    redirect '/login'
   end
 
-  get "/signup" do
-    erb :signup
-  end
-
-  post "/signup" do
-    #your code here
-    @user = User.new(:username => params[:username], :password => params[:password])
-    if params[:username].empty? || params[:password].empty?
-      redirect "/failure"
-    else
-      @user.save
-      redirect "/login"
-    end
-  end
-
-  get '/account' do
-    @user = User.find(session[:user_id])
-    erb :account
-  end
-
-
-  get "/login" do
-    erb :login
-  end
-
-  post "/login" do
-    ##your code here
-    user = User.find_by(:username => params[:username])
-
-    if params[:username].empty? || params[:password].empty?
-      redirect "/failure"
-    else
-      if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect '/account'
-    end
-  end
-end
-
-  get "/failure" do
+  get '/failure' do
     erb :failure
   end
 
-  get "/logout" do
-    session.clear
-    redirect "/"
-  end
 
   helpers do
+
     def logged_in?
-      !!session[:user_id]
+      !!session[:username]
     end
 
-    def current_user
-      User.find(session[:user_id])
+
+
+    def logout!
+      session.clear
     end
   end
+
+
 
 end

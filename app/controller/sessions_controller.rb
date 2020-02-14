@@ -11,8 +11,6 @@ class SessionsController < ApplicationController
       redirect '/failure'
     else
       @user.save
-      session[:username] = params[:username]
-
       redirect '/login'
     end
   end
@@ -35,6 +33,7 @@ class SessionsController < ApplicationController
     else
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
+        session[:username] = params[:username]
         redirect '/posts'
       end
     end
