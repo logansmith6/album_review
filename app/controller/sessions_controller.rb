@@ -18,7 +18,10 @@ class SessionsController < ApplicationController
   end
 
   get '/login' do
-    erb :"sessions/login.html"
+    if !logged_in?
+      erb :"sessions/login.html"
+    else
+      redirect '/posts'
   end
 
 

@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
 
   get '/posts' do
+    if logged_in?
     "You are logged in as #{session[:username]}"
+    else
+      redirect '/login'
+    end
   end
 
   get '/posts/new' do
