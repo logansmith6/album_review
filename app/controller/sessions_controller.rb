@@ -19,6 +19,11 @@ class SessionsController < ApplicationController
     erb :"sessions/login.html"
   end
 
+  post '/sessions' do
+    session[:username] = params[:username]
+    redirect '/posts'
+  end
+
   post '/login' do
     user = User.find_by(:username => params[:username])
 
@@ -26,8 +31,8 @@ class SessionsController < ApplicationController
       redirect '/failure'
     else
       if user && user.authenticate(params[:password])
-        sesion[:user_id] = user.id
-        redirect '/post'
+        session[:user_id] = user.id
+        redirect '/posts'
       end
     end
   end
