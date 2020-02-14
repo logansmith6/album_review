@@ -1,3 +1,3 @@
 class Reviews < ActiveRecord::Base
-
-end 
+  belongs_to :user
+end
