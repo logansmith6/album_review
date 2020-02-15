@@ -15,14 +15,12 @@ class ReviewsController < ApplicationController
                             :content => params[:content], :rating => params[:rating],
                             :user_id => params[:user_id])
 
-        if params[:album_name].empty? || params[:genre].empty? || params[:content].empty?
-                || params[:user_id].empty? || params[:rating].empty?
-                redirect '/reviews/new'
-              else
-                @review.save
-                redirect to "/reviews/#{@review.id}"
-              end
-
+    if params[:album_name].empty? || params[:genre].empty? || params[:content].empty? || params[:user_id].empty? || params[:rating].empty?
+          redirect '/reviews/new'
+    else
+        @review.save
+        redirect to "/reviews/#{@review.id}"
+    end
   end
 
   get '/reviews/new' do
