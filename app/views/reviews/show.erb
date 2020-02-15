@@ -1,5 +1,5 @@
 <h1> Album Reviews</h1>
-  <p> Name of Album: <%= @review.album_name %>
-  <p> Genre: <%= @review.genre %>
+  <p> Name of Album: <%= @review.album_name.capitalize %>
+  <p> Genre: <%= @review.genre.capitalize %>
   <p> Rating: <%= @review.rating %> /10 Stars
-  <p> Review: <%= @review.content %>
+  <p> Review: <%= @review.content.capitalize %>

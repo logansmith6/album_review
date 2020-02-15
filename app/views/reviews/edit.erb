@@ -4,10 +4,10 @@
   <input id="hidden" type="hidden" name="_method" value="PATCH" />
 
   <h1> Album Reviews</h1>
-    <p> Name of Album: <%= @review.album_name %>
-    <p> Genre: <%= @review.genre %>
+    <p> Name of Album: <%= @review.album_name.capitalize %>
+    <p> Genre: <%= @review.genre.capitalize %>
     <p> Rating: <%= @review.rating %> Stars Out of Ten
-    <p> Reviw: <%= @review.content  %>
+    <p> Reviw: <%= @review.content.capitalize  %>
 
     <p> Edit Name of Album: <input type="text" name="album_name"></p>
     <p> Edit Genre: <input type="text" name ="genre">
