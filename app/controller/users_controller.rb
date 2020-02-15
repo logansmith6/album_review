@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
 
   post '/login' do
-    login(params[:email], params[:password])
+    login(params[:username], params[:password])
     redirect '/reviews'
   end
 
