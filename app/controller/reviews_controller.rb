@@ -23,10 +23,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  get '/reviews/:id' do
-    @review = Review.find_by_id(params[:id])
-    erb :show
-  end
+
 
   get '/reviews/new' do
     if !logged_in?
@@ -34,6 +31,11 @@ class ReviewsController < ApplicationController
     else
       erb :'reviews/create_review'
     end
+  end
+
+  get '/reviews/:id' do
+    @review = Review.find_by_id(params[:id])
+    erb :show
   end
 
 
