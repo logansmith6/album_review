@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     if !logged_in?
       redirect '/login'
     else
-      "new posts here"
+      erb :'reviews/create_review'
     end
   end
 
