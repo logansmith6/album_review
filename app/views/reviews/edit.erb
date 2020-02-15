@@ -8,13 +8,17 @@
     <%= @review.rating %> Stars Out of Ten </p>
     <%= @review.content  %>
 
-    <input for="album_name" type="text" name="album_name" value ="<%= @review.album_name %>">
-    <input for="genre" type="text" name="genre" value=" <%= @review.genre %>">
-    <input for="rating" type="integer" name="rating" value=" <%= @review.rating %>">
-    <input for="content" type="text" name="content" value=" <%= @review.content %>">
+    <p> Edit Name of Album: <input type="text" name="album_name"></p>
+    <p> Edit Genre: <input type="text" name ="genre">
+    <p> Edit Rating (1-10): <input type="integer" name="rating">
+    <p>
+      <label> Edit Review:</label>
+      <textarea id = "review"
+        rows = "8"
+        cols = "60">Your Review Here</textarea>
+      </p>
+
 
     <input type="submit" value="edit" />
 
   </form>
-
-  
