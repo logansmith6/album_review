@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
   helpers do
 
     def logged_in?
-      !!session[:username]
+      !!user_online
     end
 
     def login(username, password)
@@ -34,6 +34,12 @@ class ApplicationController < Sinatra::Base
     def logout!
       session.clear
     end
+
+    def user_online
+      @user_online ||= User.find_by(:username => session[:username]) if session[:username]
+    end
+
+
   end
 
 

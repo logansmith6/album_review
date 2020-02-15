@@ -36,8 +36,11 @@ class ReviewsController < ApplicationController
   end
 
   get '/reviews/:id/edit' do
-    @review = Review.find_by_id(params[:id])
-    erb :'/reviews/edit'
+    if !logged_in?
+      redirect '/login'
+    else
+      @review = Review.find_by_id(params[:id])
+      erb :'/reviews/edit'
   end
 
   patch '/reviews/:id' do
