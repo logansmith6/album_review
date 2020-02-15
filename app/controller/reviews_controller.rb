@@ -23,6 +23,11 @@ class ReviewsController < ApplicationController
     end
   end
 
+  get '/reviews/:id' do
+    @review = Review.find_by_id(params[:id])
+    erb :show
+  end
+
   get '/reviews/new' do
     if !logged_in?
       redirect '/login'
