@@ -11,11 +11,9 @@ class ReviewsController < ApplicationController
   end
 
   post '/reviews' do
-    @review = Review.create(:album_name => params[:album_name], :genre => params[:genre],
-                            :content => params[:content], :rating => params[:rating],
-                            :user_id => params[:user_id])
+    @review = Review.new(:album_name => params[:album_name], :genre => params[:genre], :content => params[:content], :rating => params[:rating], :user_id => params[:user_id])
 
-    if params[:album_name].empty? || params[:genre].empty? || params[:content].empty? || params[:user_id].empty? || params[:rating].empty?
+    if params[:album_name].empty? || params[:genre].empty? || params[:content].empty? || params[:rating].empty?
           redirect '/reviews/new'
     else
         @review.save
@@ -35,7 +33,7 @@ class ReviewsController < ApplicationController
 
   get '/reviews/:id' do
     @review = Review.find_by_id(params[:id])
-    erb :show
+    erb :'reviews/show'
   end
 
 
