@@ -6,12 +6,13 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.new(:username => params[:username], :password => params[:password])
-    if params[:username].empty? || params[:password].empty?
-      redirect '/failure'
-    else
-      @user.save
+    @user = User.new
+    @user.username = params[:username]
+    @user.password = params[:password]
+    if @user.save
       redirect '/login'
+    else
+      erb :"users/new"
     end
   end
 
