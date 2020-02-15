@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
 
   get '/reviews' do
     if logged_in?
-    "You are logged in as #{session[:username]}"
     @reviews = Review.all
     erb :index
     else

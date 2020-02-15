@@ -1,0 +1,18 @@
+
+
+<form method="post" action="/reviews/<%= @review.id %>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH" />
+
+  <h1> <%= @review.album_name %></h1>
+    <p>Genre:<%= @review.genre %>
+    <%= @review.rating %> Stars Out of Ten </p>
+    <%= @review.content %>
+
+    <input for="album_name" type="text" name="album_name" value ="<%= @review.album_name %>">
+    <input for="genre" type="text" name="genre" value=" <%= @review.genre %>">
+    <input for="rating" type="integer" name="rating" value=" <%= @review.rating %>">
+    <input for="content" type="text" name="content" value=" <%= @review.content %>">
+
+    <input type="submit" value="edit" />
+
+  </form>
