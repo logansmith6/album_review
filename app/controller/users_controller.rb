@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
   get '/signup' do
-    erb :"sessions/signup"
+    erb :"users/signup"
   end
 
   post '/signup' do
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if !logged_in?
-      erb :"sessions/login.html"
+      erb :"users/login.html"
     else
       redirect '/reviews'
     end

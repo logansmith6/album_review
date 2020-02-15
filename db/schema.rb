@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_02_14_235542) do
 
   create_table "reviews", force: :cascade do |t|
+    t.string "album_name"
     t.string "content"
     t.string "genre"
     t.integer "user_id"
