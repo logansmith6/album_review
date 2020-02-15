@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    erb :"reviews/login.html"
+    erb :"users/login.html"
+    redirect '/reviews'
   end
 
 
