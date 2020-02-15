@@ -6,7 +6,7 @@
   <h1> <%= @review.album_name %></h1>
     <p>Genre:<%= @review.genre %>
     <%= @review.rating %> Stars Out of Ten </p>
-    <%= @review.content %>
+    <%= @review.content  %>
 
     <input for="album_name" type="text" name="album_name" value ="<%= @review.album_name %>">
     <input for="genre" type="text" name="genre" value=" <%= @review.genre %>">
@@ -16,3 +16,5 @@
     <input type="submit" value="edit" />
 
   </form>
+
+  
