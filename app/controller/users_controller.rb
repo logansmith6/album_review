@@ -16,28 +16,13 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    if !logged_in?
-      erb :"users/login.html"
-    else
-      session[:username] = params[:username]
-      redirect '/reviews'
-    end
+    erb :"reviews/login.html"
   end
 
 
 
   post '/login' do
-    user = User.find_by(:username => params[:username])
-
-    if params[:username].empty? || params[:password].empty?
-      redirect '/failure'
-    else
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
-        session[:username] = params[:username]
-        redirect '/reviews'
-      end
-    end
+    login(params[:email], params[:password])
   end
 
   get '/logout' do
