@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :"sessions/login.html"
     else
-      redirect '/posts'
+      redirect '/reviews'
     end
   end
 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         session[:username] = params[:username]
-        redirect '/posts'
+        redirect '/reviews'
       end
     end
   end
