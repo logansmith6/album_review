@@ -3,10 +3,11 @@
 <form method="post" action="/reviews/<%= @review.id %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH" />
 
-  <h1> <%= @review.album_name %></h1>
-    <p>Genre:<%= @review.genre %>
-    <%= @review.rating %> Stars Out of Ten </p>
-    <%= @review.content  %>
+  <h1> Album Reviews</h1>
+    <p> Name of Album: <%= @review.album_name %>
+    <p> Genre: <%= @review.genre %>
+    <p> Rating: <%= @review.rating %> Stars Out of Ten
+    <p> Reviw: <%= @review.content  %>
 
     <p> Edit Name of Album: <input type="text" name="album_name"></p>
     <p> Edit Genre: <input type="text" name ="genre">
