@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.string :album_name
       t.string :content
       t.string :genre
+      t.integer :rating
       t.integer :user_id
     end
   end

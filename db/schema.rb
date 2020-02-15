@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_235542) do
     t.string "album_name"
     t.string "content"
     t.string "genre"
+    t.integer "rating"
     t.integer "user_id"
   end
 
