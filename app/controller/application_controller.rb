@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def user_online
-      @user_online ||= User.find_by(id: session[:user_id]) if session[:user_id]
+      @user_online ||= User.find_by(:username => params[:username]) if session[:username]
     end
 
 
