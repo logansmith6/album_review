@@ -35,5 +35,26 @@ class ReviewsController < ApplicationController
     erb :'reviews/show'
   end
 
+  get '/reviews/:id/edit' do
+    @review = Review.find_by_id(params[:id])
+    erb :'/reviews/edit'
+  end
+
+  patch '/reviews/:id' do
+    @review = Review.find_by_id(params[:id])
+
+    @review.album_name = params[:album_name]
+    @review.genre = params[:genre]
+    @review.rating = params[:rating]
+    @review.content = params[:content]
+    @review.save
+    redirect "/reviews/#{@review.id}"
+  end
+
+  delete '/reviews/:id' do
+    Review.destroy(params[:id])
+    redirect '/reviews'
+  end
+
 
 end
