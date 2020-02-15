@@ -42,8 +42,9 @@ class ReviewsController < ApplicationController
       review = Review.find(params[:id])
       if review.user_id == user_online.id
       erb :'/reviews/edit'
-    else
-      redirect '/reviews'
+      else
+        redirect '/reviews'
+      end
     end
   end
 
