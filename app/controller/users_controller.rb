@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :"users/login.html"
     else
+      session[:username] = params[:username]
       redirect '/reviews'
     end
   end
