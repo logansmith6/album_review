@@ -1,4 +1,9 @@
 <h1> <%= @review.album_name %></h1>
-  <p>Genre:<%= @review.genre %>
-  <%= @review.rating %> Stars Out of Ten </p>
-  <%= @review.content %>
+  <p> Genre:<%= @review.genre %>
+  <p> <%= @review.rating %> /10 Rating
+  <p>
+      <label> Review:</label>
+      <textarea id = "review"
+        rows = "8"
+        cols = "60"><%= @review.content %></textarea>
+      </p>
