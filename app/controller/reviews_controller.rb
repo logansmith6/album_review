@@ -10,13 +10,19 @@ class ReviewsController < ApplicationController
   end
 
   post '/reviews' do
-    @review = Review.new(:album_name => params[:album_name], :genre => params[:genre], :content => params[:content], :rating => params[:rating], :user_id => params[:user_id])
-
-    if params[:album_name].empty? || params[:genre].empty? || params[:content].empty? || params[:rating].empty?
+    if logged_in?
+      if params[:content] == "" || params[:album_name] == "" || params[:rating] == "" || params[:genre] == ""
+        redirect '/reviews/new'
+      else
+        @review = user_online.reviews.build(:album_name => params[:album_name], :genre => params[:genre], :rating => params[:rating], :content => params[:content])
+        if @review.save
+          redirect "/reviews/#{@review.id}"
+        else
           redirect '/reviews/new'
+        end
+      end
     else
-        @review.save
-        redirect to "/reviews/#{@review.id}"
+      redirect '/login'
     end
   end
 
