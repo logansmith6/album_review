@@ -17,13 +17,13 @@ class UsersController < ApplicationController
 
   get '/login' do
     erb :"users/login.html"
-    redirect '/reviews'
   end
 
 
 
   post '/login' do
     login(params[:email], params[:password])
+    redirect '/reviews'
   end
 
   get '/logout' do
