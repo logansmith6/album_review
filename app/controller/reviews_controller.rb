@@ -39,8 +39,12 @@ class ReviewsController < ApplicationController
     if !logged_in?
       redirect '/login'
     else
-      @review = Review.find_by_id(params[:id])
+      review = Review.find(params[:id])
+      if review.user_id == user_online.id
       erb :'/reviews/edit'
+    else
+      redirect '/reviews'
+    end
   end
 
   patch '/reviews/:id' do
