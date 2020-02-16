@@ -8,7 +8,7 @@
     <p> Artist: <%= @review.artist.capitalize %>
     <p> Genre: <%= @review.genre.capitalize %>
     <p> Rating: <%= @review.rating %> Stars Out of Ten
-    <p> Reviw: <%= @review.content.capitalize  %>
+    <p> Reviw: <%= @review.content  %>
 
     <p> Edit Name of Album: <input type="text" name="album_name">
     <p> Edit Artist Name: <input type="text" name="artist">
@@ -16,7 +16,7 @@
     <p> Edit Rating (1-10): <input type="integer" name="rating">
     <p>
       <label> Edit Review:</label>
-      <textarea id = "review"
+      <textarea name = "content"
         rows = "8"
         cols = "60">Your Review Here</textarea>
       </p>
