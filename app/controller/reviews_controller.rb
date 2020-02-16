@@ -71,10 +71,16 @@ class ReviewsController < ApplicationController
     redirect "/reviews/#{@review.id}"
   end
 
-  delete '/reviews/:id' do #deletes review if it is users own
-    Review.destroy(params[:id])
-    redirect '/reviews'
+  delete '/reviews/:id/delete' do #deletes review if it is users own
+    if !logged_in?
+      redirect '/login'
+    else
+      @review = Review.find_by_id(params[:id])
+      if @review && @review.user == user_online
+        Review.destroy(params[:id])
+      else
+        redirect '/reviews'
+      end
+    end
   end
-
-
 end
