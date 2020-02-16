@@ -9,5 +9,5 @@
 
 <div class ="panel panel-default"><h3>Album Reviews</h3>
   <div class = "panel-heading"> Name of Album: <%= @review.album_name %></h3></div>
-  <div class "panel-body"> Artist: <%= @review.artist%> <br> Genre: <%= @review.genre %> <br> Rating: <%= @review.rating %> /10 Stars <br> Review: <%= @review.content %></div>
+  <div class "panel-body"> Artist: <%= @review.artist%> <br> Genre: <%= @review.genre %> <br> Rating: <%= @review.rating %> /10 Stars <br> Review: <%= @review.content %><br> Review written by: <%= @review.user.username%><br></div>
   </div>

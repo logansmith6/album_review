@@ -10,7 +10,7 @@
 <% @reviews.each do |review| %>
   <div class ="panel panel-default">
     <div class ="panel-heading"><h3> Album Name: <%= review.album_name %> </h3></div>
-      <div class ="panel-body"> Artist: <%= review.artist%> Genre: <%= review.genre %> <br> Review: <%= review.content %> </div>
+      <div class ="panel-body"> Artist: <%= review.artist%> Genre: <%= review.genre %> <br> Review: <%= review.content %> <br> Review written by: <%= review.user.username%><br></div>
     </div>
 
 
