@@ -79,6 +79,7 @@ class ReviewsController < ApplicationController
       @review = Review.find_by_id(params[:id])
       if @review && @review.user == user_online
         Review.destory(params[:id])
+        redirect '/reviews'
       else
         redirect '/reviews'
       end
