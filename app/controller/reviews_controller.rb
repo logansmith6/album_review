@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  get '/reviews' do
+  get '/reviews' do #if user is logged in, takes them to a page displaying all the reviews
     if logged_in?
     @reviews = Review.all
     erb :index
@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  post '/reviews' do
+  post '/reviews' do #if all the stuff is filled out, it saves the new review
     if logged_in?
       if params[:content] == "" || params[:album_name] == "" || params[:rating] == "" || params[:genre] == ""
         redirect '/reviews/new'
@@ -27,8 +27,7 @@ class ReviewsController < ApplicationController
   end
 
 
-
-  get '/reviews/new' do
+  get '/reviews/new' do  #sends user to page to make new review, or sends them to login if they aren't
     if !logged_in?
       redirect '/login'
     else
@@ -36,7 +35,8 @@ class ReviewsController < ApplicationController
     end
   end
 
-  get '/reviews/:id' do
+
+  get '/reviews/:id' do #to specific reviews own page
     if logged_in?
       @review = Review.find_by_id(params[:id])
       erb :'reviews/show'
@@ -45,7 +45,8 @@ class ReviewsController < ApplicationController
     end
   end
 
-  get '/reviews/:id/edit' do
+
+  get '/reviews/:id/edit' do #sends user to edit their own reviews
     if !logged_in?
       redirect '/login'
     else
@@ -58,7 +59,8 @@ class ReviewsController < ApplicationController
     end
   end
 
-  patch '/reviews/:id' do
+
+  patch '/reviews/:id' do #saves edit from user for their own review
     @review = Review.find_by_id(params[:id])
 
     @review.album_name = params[:album_name]
@@ -69,7 +71,7 @@ class ReviewsController < ApplicationController
     redirect "/reviews/#{@review.id}"
   end
 
-  delete '/reviews/:id' do
+  delete '/reviews/:id' do #deletes review if it is users own
     Review.destroy(params[:id])
     redirect '/reviews'
   end
