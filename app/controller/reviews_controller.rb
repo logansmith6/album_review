@@ -11,10 +11,10 @@ class ReviewsController < ApplicationController
 
   post '/reviews' do #if all the stuff is filled out, it saves the new review
     if logged_in?
-      if params[:content] == "" || params[:album_name] == "" || params[:rating] == "" || params[:genre] == ""
+      if params[:content] == "" || params[:artist] == "" || params[:album_name] == "" || params[:rating] == "" || params[:genre] == ""
         redirect '/reviews/new'
       else
-        @review = user_online.reviews.build(:album_name => params[:album_name], :genre => params[:genre], :rating => params[:rating], :content => params[:content])
+        @review = user_online.reviews.build(:album_name => params[:album_name], :artist => params[:artist], :genre => params[:genre], :rating => params[:rating], :content => params[:content])
         if @review.save
           redirect "/reviews/#{@review.id}"
         else
@@ -65,6 +65,7 @@ class ReviewsController < ApplicationController
 
     @review.album_name = params[:album_name]
     @review.genre = params[:genre]
+    @review.artist = params[:artist]
     @review.rating = params[:rating]
     @review.content = params[:content]
     @review.save

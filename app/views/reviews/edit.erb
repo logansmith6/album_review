@@ -5,11 +5,13 @@
 
   <h1> Album Reviews</h1>
     <p> Name of Album: <%= @review.album_name.capitalize %>
+    <p> Artist: <%= @review.artist.capitalize %>
     <p> Genre: <%= @review.genre.capitalize %>
     <p> Rating: <%= @review.rating %> Stars Out of Ten
     <p> Reviw: <%= @review.content.capitalize  %>
 
-    <p> Edit Name of Album: <input type="text" name="album_name"></p>
+    <p> Edit Name of Album: <input type="text" name="album_name">
+    <p> Edit Artist Name: <input type="text" name="artist">
     <p> Edit Genre: <input type="text" name ="genre">
     <p> Edit Rating (1-10): <input type="integer" name="rating">
     <p>
