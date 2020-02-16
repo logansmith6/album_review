@@ -72,7 +72,7 @@ class ReviewsController < ApplicationController
     redirect "/reviews/#{@review.id}"
   end
 
-  delete '/reviews/:id/delete' do #deletes review if it is users own
+  get '/reviews/:id/delete' do #deletes review if it is users own
     if logged_in?
       @review = Review.find_by_id(params[:id])
       if @review && @review.user == user_online
