@@ -6,7 +6,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<h3>Album Reviews</h3><a href ="/reviews/new">Post a Review</a><a href ="/logout">Logout</a>
+<h3>Album Reviews</h3><a href ="/reviews/new"> Post a Review </a><a href ="/logout"> Logout </a>
 <div class ="panel panel-default">
   <div class = "panel-heading"> Name of Album: <%= @review.album_name %></h3></div>
   <div class "panel-body"> Artist: <%= @review.artist%> <br> Genre: <%= @review.genre %> <br> Rating: <%= @review.rating %> /10 Stars <br> Review: <%= @review.content %><br> Review written by: <%= @review.user.username%><br></div>
